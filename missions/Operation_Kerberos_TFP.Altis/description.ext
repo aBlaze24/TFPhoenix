@@ -1,0 +1,60 @@
+/*
+ *  Author: Dorbedo, iJesuz
+ *
+ *  Description:
+ *      description.ext
+ *
+ */
+ #define CBA_OFF
+ #include "script_component.hpp"
+
+__EXEC (MISSION_ROOT = __FILE__ select [0, count __FILE__ - 15]);
+
+cba_settings_hasSettingsFile = 1;
+onLoadMissionTime = 1;
+onLoadName = ECSTRING(MAIN,NAME);
+onLoadMission = __EVAL((localize LSTRING(NAME)) + ' - Version: ' + 'VERSION');
+loadScreen = MPATH(gui\data\logo\logo_512.paa);
+
+author = CSTRING(AUTHOR);
+//overviewPicture = MPATH(gui\data\logo\logo_512.paa);
+overviewPicture = "";
+overviewText = "";
+overviewTextLocked = "";
+
+/// respawn
+respawn = 3;
+respawnButton = 1;
+respawnDelay = 5;
+respawnDialog = 0;
+respawnOnStart = 0;
+respawnTemplates[] = {"MenuPosition"};
+
+/// revive
+ReviveMode = 0;
+
+disabledAI = 1;
+aiKills = 0;
+
+class Header {
+    gameType = Coop;
+    minPlayers = 1;
+    maxPlayers = 52;
+};
+
+corpseManagerMode = 0;
+wreckManagerMode = 0;
+
+saving = 0;
+scriptedPlayer = 1;
+
+/*
+ * Kerberos specific stuff
+ */
+isKerberos = 1; //activates the servermod
+//kerberos_armywhitelist[] = {"vanilla"}; //used to specify the possible armys on missionside
+kerberos_armyblacklist[] = {"vanilla"}; //used to specify the possible armys on missionside
+
+#include "CfgComponents.hpp"
+#include "CfgSounds.hpp"
+#include "CfgUnitInsignia.hpp"
