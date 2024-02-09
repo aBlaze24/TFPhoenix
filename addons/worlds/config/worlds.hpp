@@ -61,4 +61,13 @@ class worlds {
             #include "lingor3\waypoints.hpp"
         };
     };
+	class clafghan {
+        camouflage = 0;
+        class locations {
+            #include "clafghan\locations.hpp"
+        };
+        class waypoints {
+            #include "clafghan\waypoints.hpp"
+        };
+    };
 };

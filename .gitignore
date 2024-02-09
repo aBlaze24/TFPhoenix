@@ -12,3 +12,7 @@ privatekeys/*
 temp/*
 **/~*
 *.zip
+.vs
+*/.vs
+.vscode
+*/.vscode
