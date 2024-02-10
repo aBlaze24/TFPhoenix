@@ -158,6 +158,8 @@ def main(argv):
     print("  Creating the servermod")
     releasepath = os.path.normpath(projectpath + "/release/@dorb/addons")
 
+    path_armake = "\"{}\"".format(path_armake)
+
     for file in os.listdir(addonspath):
         path = os.path.join(addonspath, file)
         if not os.path.isdir(path):
@@ -168,20 +170,20 @@ def main(argv):
         print("  Making {}{} ...".format(PREFIX, file))
 
         try:
-            command = path_armake + " build -i " + workdrivepath + \
+            command = path_armake + " build -i " + "\"{}\"".format(workdrivepath) + \
                 " -w unquoted-string" + " -w redefinition-wo-undef" + \
-                " -f " + os.path.normpath(addonspath + "/" + file) + " " + \
-                os.path.normpath(releasepath + "/" + PREFIX + file + ".pbo")
+                " -f \"" + os.path.normpath(addonspath + "/" + file) + "\" " + \
+                "\"{}\"".format(os.path.normpath(releasepath + "/" + PREFIX + file + ".pbo"))
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
-            command = path_armake + " sign -f " + os.path.normpath(projectpath + \
-                "/privatekeys/kerberos_{}.{}.biprivatekey ".format(major, minor)) + \
-                os.path.normpath(releasepath + "/" + PREFIX + file + ".pbo")
+            command = path_armake + " sign -f \"" + os.path.normpath(projectpath + \
+                "/privatekeys/kerberos_{}.{}.biprivatekey\" ".format(major, minor)) + \
+                "\"{}\"".format(os.path.normpath(releasepath + "/" + PREFIX + file + ".pbo"))
             subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
-        except:
+        except Exception as ex:
             failed += 1
-            print("    Failed to make {}{}.".format(PREFIX, file))
+            print("    Failed to make {}{}.\n    {}".format(PREFIX, file, ex))
         else:
             made += 1
             print("    Successfully made {}{}.".format(PREFIX, file))
@@ -193,7 +195,6 @@ def main(argv):
 
     shutil.copy(os.path.normpath(addonspath + "/main/script_version.hpp"), \
         os.path.normpath(missionspath + "/" + MAINMISSION + "/main/script_version.hpp"))
-
 
     releasepath = os.path.normpath(projectpath + "/release/@dorb/mpmissions")
     if not os.path.exists(releasepath):
@@ -210,10 +211,10 @@ def main(argv):
 
         try:
             if file == MAINMISSION:
-                command = path_armake + " build -p -i " + workdrivepath + \
+                command = path_armake + " build -p -i " + "\"{}\"".format(workdrivepath) + \
                 " -w unquoted-string" + " -w redefinition-wo-undef" + \
-                " -f " + os.path.normpath(missionspath + "/" + file) + " " + \
-                os.path.normpath(releasepath + "/" + file + ".pbo")
+                " -f " + "\"{}\"".format(os.path.normpath(missionspath + "/" + file)) + " " + \
+                "\"{}\"".format(os.path.normpath(releasepath + "/" + file + ".pbo"))
                 subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
             else:
                 os.makedirs(temppath)
@@ -221,10 +222,10 @@ def main(argv):
                 shutil.copytree(os.path.normpath(missionspath + "/" + MAINMISSION), newdir)
                 copy_tree(os.path.normpath(missionspath + "/" + file), newdir)
 
-                command = path_armake + " build -p -i " + workdrivepath + \
+                command = path_armake + " build -p -i " + "\"{}\"".format(workdrivepath) + \
                 " -w unquoted-string" + " -w redefinition-wo-undef" + \
-                " -f " + newdir + " " + \
-                os.path.normpath(releasepath + "/" + file + ".pbo")
+                " -f " + "\"{}\"".format(newdir) + " " + \
+                "\"{}\"".format(os.path.normpath(releasepath + "/" + file + ".pbo"))
                 subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
 
                 shutil.rmtree(temppath, ignore_errors=True)

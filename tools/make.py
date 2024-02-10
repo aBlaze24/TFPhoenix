@@ -236,10 +236,10 @@ def find_depbo_tools():
     for tool in requiredToolPaths:
         try:
             try:
-                k = winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\Mikero\{}".format(tool))
+                k = winreg.OpenKey(winreg.HKEY_CURRENT_USER, "Software\\Mikero\\{}".format(tool))
                 path = winreg.QueryValueEx(k, "exe")[0]
             except FileNotFoundError:
-                k = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, r"Software\Mikero\{}".format(tool))
+                k = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, "Software\\Mikero\\{}".format(tool))
                 path = winreg.QueryValueEx(k, "exe")[0]
         except FileNotFoundError:
             print_error("Could not find {}".format(tool))
@@ -507,7 +507,7 @@ def get_project_version(version_increments=[]):
     #do the magic based on https://github.com/acemod/ACE3/issues/806#issuecomment-95639048
 
     try:
-        scriptModPath = os.path.join(module_root, "main\script_version.hpp")
+        scriptModPath = os.path.join(module_root, "main\\script_version.hpp")
 
         if os.path.isfile(scriptModPath):
             f = open(scriptModPath, "r")
@@ -1036,7 +1036,7 @@ See the make.cfg file for additional build options.
         cache = {}
 
     # Check the build version (from main) with cached version - forces a full rebuild when version changes
-    cacheVersion = "None";
+    cacheVersion = "None"
     if 'cacheVersion' in cache:
         cacheVersion = cache['cacheVersion']
 
@@ -1106,9 +1106,9 @@ See the make.cfg file for additional build options.
                 if ret == 0:
                     print_green("Created: {}".format(os.path.join(private_key_path, key_name + ".biprivatekey")))
                     print("Removing any old signature keys...")
-                    purge(os.path.join(module_root, release_dir, project, "addons"), "^.*\.bisign$","*.bisign")
-                    purge(os.path.join(module_root, release_dir, project, "optionals"), "^.*\.bisign$","*.bisign")
-                    purge(os.path.join(module_root, release_dir, project, "keys"), "^.*\.bikey$","*.bikey")
+                    purge(os.path.join(module_root, release_dir, project, "addons"), "^.*\\.bisign$","*.bisign")
+                    purge(os.path.join(module_root, release_dir, project, "optionals"), "^.*\\.bisign$","*.bisign")
+                    purge(os.path.join(module_root, release_dir, project, "keys"), "^.*\\.bikey$","*.bikey")
                 else:
                     print_error("Failed to create key!")
 
@@ -1143,7 +1143,7 @@ See the make.cfg file for additional build options.
                 if check_for_obsolete_pbos(module_root, file):
                     fileName = os.path.splitext(file)[0]
                     print_yellow("Removing obsolete pbo => {}".format(file))
-                    purge(obsolete_check_path, "{}\..".format(fileName), "{}.*".format(fileName))
+                    purge(obsolete_check_path, "{}\\..".format(fileName), "{}.*".format(fileName))
 
         obsolete_check_path = os.path.join(module_root, release_dir, project)
         for file in os.listdir(obsolete_check_path):
@@ -1293,7 +1293,7 @@ See the make.cfg file for additional build options.
 
                     if not build_successful:
                         print_error("pboProject return code == {}".format(str(ret)))
-                        print_error("Module not successfully built/signed. Check your {}temp\{}_packing.log for more info.".format(work_drive,module))
+                        print_error("Module not successfully built/signed. Check your {}temp\\{}_packing.log for more info.".format(work_drive,module))
                         print ("Resuming build...")
                         failedBuilds.append("{}".format(module))
                         continue
@@ -1321,24 +1321,24 @@ See the make.cfg file for additional build options.
                     # Call AddonBuilder
                     os.chdir("P:\\")
 
-                    cmd = [addonbuilder, os.path.join(work_drive, prefix, module), os.path.join(make_root, release_dir, project, "addons"), "-clear", "-project="+work_drive]
+                    cmd = ["{}".format(addonbuilder), (os.path.join(work_drive, prefix, module)), (os.path.join(make_root, release_dir, project, "addons")), "-clear", "-project={}".format(work_drive)]
                     if not do_binarize:
                         cmd.append("-packonly")
 
                     if quiet:
                         previousDirectory = os.getcwd()
-                        os.chdir(arma3tools_path)
+                        os.chdir(os.path.normpath((arma3tools_path)))
                         devnull = open(os.devnull, 'w')
                         ret = subprocess.call(cmd, stdout=devnull)
                         devnull.close()
                         os.chdir(previousDirectory)
                     else:
                         previousDirectory = os.getcwd()
-                        os.chdir(arma3tools_path)
-                        print_error("Current directory - {}".format(os.getcwd()))
+                        os.chdir(os.path.normpath((arma3tools_path)))
+                        print_blue("Current directory - {}".format(os.getcwd()))
                         ret = subprocess.call(cmd)
                         os.chdir(previousDirectory)
-                        print_error("Current directory - {}".format(os.getcwd()))
+                        print_blue("Current directory - {}".format(os.getcwd()))
                     color("reset")
                     print_green("completed")
                     # Prettyprefix rename the PBO if requested.
@@ -1366,7 +1366,7 @@ See the make.cfg file for additional build options.
                             build_successful = True
 
                     if not build_successful:
-                        print_error("Module not successfully built. Check your {}temp\{}_packing.log for more info.".format(work_drive,module))
+                        print_error("Module not successfully built. Check your {}temp\\{}_packing.log for more info.".format(work_drive,module))
 
                     # Back to the root
                     os.chdir(make_root)
