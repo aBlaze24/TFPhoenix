@@ -13,6 +13,7 @@ PREP(setLoadout);
 PREP(onrespawn);
 PREP(onkilled);
 
+PREP(addRulesDiary);
 
 PREPS(backpack,change);
 PREPS(backpack,handle);
