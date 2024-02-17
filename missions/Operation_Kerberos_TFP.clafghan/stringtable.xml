@@ -1665,5 +1665,77 @@
             <German>Zusätzliche Langstreckenfrequenz:</German>
         </Key>
     </Package>
-</Project>
+    <Package name="RULES">
+        <Key ID="STR_DORB_RULES_SUBJECT">
+            <English>Rules</English>
+            <German>Regelwerk</German>
+        </Key>
+        <Key ID="STR_DORB_RULES_P1">
+            <English>§1 General</English>
+            <German>§1 Allgemein</German>
+        </Key>
+        <Key ID="STR_DORB_RULES_P1_RECORD">
+            <English>
+- Polite manners must be used.
+&lt;br/&gt;
+- Insults, racist and discriminatory statements will not be tolerated.
+&lt;br/&gt;
+- Blue on Blue will not be tolerated.
+            </English>
+            <German>
+- Höfliche Umgangsformen sind zu verwenden.
+&lt;br/&gt;
+- Beleidigungen, rassistische und diskriminierende Äußerungen werden nicht toleriert.
+&lt;br/&gt;
+- Blue on Blue wird nicht toleriert.
+            </German>
+        </Key>
 
+        <Key ID="STR_DORB_RULES_P2">
+            <English>§2 Radio</English>
+            <German>§2 Funk</German>
+        </Key>
+        <Key ID="STR_DORB_RULES_P2_RECORD">
+            <English>
+- Discipline.
+&lt;br/&gt;
+- Radio readiness must be ensured when leaving the base.
+            </English>
+            <German>
+- Disziplin.
+&lt;br/&gt;
+- Funkbereitschaft ist beim Verlassen der Basis sicherzustellen.
+            </German>
+        </Key>
+
+        <Key ID="STR_DORB_RULES_P3">
+            <English>§3 Playership</English>
+            <German>§3 Spielerschaft</German>
+        </Key>
+        <Key ID="STR_DORB_RULES_P3_RECORD">
+            <English>
+- Going alone is prohibited.
+&lt;br/&gt;
+- The tactical interaction must be maintained taking into account all players on the server!
+            </English>
+            <German>
+- Alleingänge sind untersagt.
+&lt;br/&gt;
+- Das taktische Zusammenspiel ist unter Berücksichtung aller auf dem Server befindlichen Spieler zu wahren!
+            </German>
+        </Key>
+
+        <Key ID="STR_DORB_RULES_P4">
+            <English>§4 Vehicle crews</English>
+            <German>§4 Fahrzeugbesatzungen</German>
+        </Key>
+        <Key ID="STR_DORB_RULES_P4_RECORD">
+            <English>
+- A vehicle crew consists of at least 2 men.
+            </English>
+            <German>
+- Eine Fahrzeugbesatzung besteht aus mindestens 2 Mann.
+            </German>
+        </Key>
+    </Package>
+</Project>

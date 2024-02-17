@@ -10,10 +10,11 @@ CHECK(!hasInterface)
 
 uiNamespace setVariable [QEGVAR(gui,respawnTime),nil];
 
+[player] call FUNC(addRulesDiary);
+
 [] call FUNC(halo_addaction);
 [] call FUNC(backpack_init);
 [] call FUNC(initKnockKnock);
-
 
 /*
  * Arsenal Restrictions
@@ -29,8 +30,6 @@ uiNamespace setVariable [QEGVAR(gui,respawnTime),nil];
  * Copy Loadout Action
  *
 */
-
-
 private _action = [
     QGVAR(copy_loadout),
     localize LSTRING(ACTION_COPY_LOADOUT),
@@ -46,9 +45,6 @@ private _action = [
 ["CAManBase",0,["ACE_MainActions"],_action,true] call ace_interact_menu_fnc_addActionToClass;
 
 
-
-
-
 waituntil {! isnull player};
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 
@@ -60,6 +56,8 @@ If ((getMissionConfigValue ["isKerberos", 0]) > 0) then {
         }
     ] call CBA_fnc_addEventHandler;
 };
+
+
 /*
  *
  *      Base Protection
