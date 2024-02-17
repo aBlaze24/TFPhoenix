@@ -37,39 +37,6 @@ switch (str(side player)) do {
             _id
         ] call EFUNC(gui,addNotification);
 
-        _id = ["air_west",airspawn_west_1] call FUNC(registerSpawn);
-        [
-            LSTRING(NAME_AIR),
-            ELSTRING(gui_main,CATEGORY_DEPOT),
-            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
-            LINKFUNC(openMenu),
-            LINKFUNC(canOpenMenu),
-            _id
-        ] call EFUNC(gui_main,addApp);
-        [
-            format[QGVAR(interface_%1),_id],
-            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
-            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
-            _id
-        ] call EFUNC(gui,addNotification);
-
-        _id = ["air_west",airspawn_west_2] call FUNC(registerSpawn);
-        [
-            LSTRING(NAME_AIR),
-            ELSTRING(gui_main,CATEGORY_DEPOT),
-            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
-            LINKFUNC(openMenu),
-            LINKFUNC(canOpenMenu),
-            _id
-        ] call EFUNC(gui_main,addApp);
-        [
-            format[QGVAR(interface_%1),_id],
-            (parsingNamespace getVariable ["MISSION_ROOT",""]) + 'COMPONENT\data\icon_heli.paa',
-            {[ace_player,ace_player,_this] call FUNC(canOpenMenu);},
-            _id
-        ] call EFUNC(gui,addNotification);
-
-
         // Southern Airfield
         _id = ["air_west",airspawn_west_south] call FUNC(registerSpawn);
         [
