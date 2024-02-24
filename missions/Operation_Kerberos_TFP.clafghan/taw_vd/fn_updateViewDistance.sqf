@@ -6,7 +6,7 @@
 	Updates the view distance dependant on whether the player
 	is on foot, a car or an aircraft.
 */
-private "_dist";
+private _dist = 1500;
 switch (true) do {
 	case (!(EQUAL(SEL(UAVControl getConnectedUAV player,1),""))): {
 		setViewDistance tawvd_drone;
