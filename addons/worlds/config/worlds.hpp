@@ -70,4 +70,31 @@ class worlds {
             #include "clafghan\waypoints.hpp"
         };
     };
+    class tanoa {
+        camouflage = 1;
+        class locations {
+            #include "tanoa\locations.hpp"
+        };
+        class waypoints {
+            #include "tanoa\waypoints.hpp"
+        };
+    };
+    class malden {
+        camouflage = 0;
+        class locations {
+            #include "malden\locations.hpp"
+        };
+        class waypoints {
+            #include "malden\waypoints.hpp"
+        };
+    };
+    class green_sea {
+        camouflage = 1;
+        class locations {
+            #include "green_sea\locations.hpp"
+        };
+        class waypoints {
+            #include "green_sea\waypoints.hpp"
+        };
+    };
 };
