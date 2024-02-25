@@ -71,7 +71,12 @@ private _magazines = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
             If ("medical" in ((gettext(_cfg >> "picture")) splitString "\")) then {
                 _index = ID_MEDIC;
             } else {
-                _index = ID_OTHER;
+                // For newer ACE version.
+                if ((getNumber(_cfg >> "ACE_isMedicalItem")) > 0) then {
+                    _index = ID_MEDIC;
+                } else {
+                    _index = ID_OTHER;
+                };
             };
         };
         (_return select _index) pushBack _x;
