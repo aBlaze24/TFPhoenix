@@ -23,6 +23,7 @@ If (!_pushed) exitWith {
 if (GVAR(multiplicator) > 1) exitWith {};
 
 switch (_key) do {
-    case 42 : {GVAR(multiplicator) = 10;};
+    case 42 : {GVAR(multiplicator) = 5;};
+    case 29 : {GVAR(multiplicator) = 10;};
     case 56 : {GVAR(multiplicator) = 100;};
 };
