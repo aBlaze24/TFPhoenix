@@ -11,7 +11,7 @@ CHECK(!hasInterface)
 /*
  * Advanced Medical -> Add a chance to revive players
  */
-
+/*
 [
     "ace_medical_treatmentAdvanced_CPRLocal",
     {
@@ -81,8 +81,9 @@ CHECK(!hasInterface)
         };
     }
 ] call CBA_fnc_addEventHandler;
+*/
 
 /*
  * Change Team Colors -> Ace Copy
  */
-[] call FUNC(addColorActions);
+// [] call FUNC(addColorActions);
