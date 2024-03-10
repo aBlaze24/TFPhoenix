@@ -948,8 +948,29 @@
             <English>Landing Bay</English>
             <German>Landebucht</German>
         </Key>
+		
+		<Key ID="STR_DORB_GUI_TELEPORT_TP_SOUTH">
+			<English>Krutoy Cap</English>
+			<German>Krutoy Cap</German>
+		</Key>
 
-        <Key ID="STR_DORB_GUI_TELEPORT_NORTH">
+		<Key ID="STR_DORB_GUI_TELEPORT_TP_SOUTHWEST">
+			<English>Bay Tikhaya</English>
+			<German>Bay Tikhaya</German>
+		</Key>
+		
+		<Key ID="STR_DORB_GUI_TELEPORT_TP_NORTHWEST">
+			<English>Grozovoy Pass</English>
+			<German>Grozovoy Pass</German>
+		</Key>
+
+		<Key ID="STR_DORB_GUI_TELEPORT_TP_BOAT">
+			<English>Boat Spawner</English>
+			<German>Boot Spawner</German>
+		</Key>
+
+
+		<Key ID="STR_DORB_GUI_TELEPORT_NORTH">
             <English>Entrypoint North</English>
             <German>Eintrittspunkt Nord</German>
         </Key>

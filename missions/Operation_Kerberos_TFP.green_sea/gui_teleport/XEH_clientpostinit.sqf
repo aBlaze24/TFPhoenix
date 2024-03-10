@@ -43,15 +43,22 @@ CHECK(!hasInterface)
 [getMarkerPos "bay_south",localize LSTRING(BAY_SOUTH),"infanterie",{!(_this call FUNC(nearEnemys))},[getMarkerPos "bay_south"]] call FUNC(registerTeleportPosition);
 */
 
-[getMarkerPos "Airfield_South_TP",localize LSTRING(AIRFIELD_SOUTH_TP),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "Airfield_South_TP"]] call FUNC(registerTeleportTarget);
-[getMarkerPos "Airfield_South_TP",localize LSTRING(AIRFIELD_SOUTH_TP),"infanterie",{!(_this call FUNC(nearEnemys))},[getMarkerPos "Airfield_South_TP"]] call FUNC(registerTeleportPosition);
-
-
 If (((getMarkerpos "respawn_west_land") distance2D [0,0,0])>100) then {
     [getMarkerPos "respawn_west_land",localize LSTRING(BAY_TONOS),["default","infanterie"],{true},[]] call FUNC(registerTeleportTarget);
     [getMarkerPos "respawn_west_land",localize LSTRING(BAY_TONOS),["default","infanterie"],{true},[]] call FUNC(registerTeleportPosition);
 };
 
+[getMarkerPos "tp_south",localize LSTRING(TP_SOUTH),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "tp_south"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "tp_south",localize LSTRING(TP_SOUTH),"default",{!(_this call FUNC(nearEnemys))},[getMarkerPos "tp_south"]] call FUNC(registerTeleportPosition);
+
+[getMarkerPos "tp_southwest",localize LSTRING(TP_SOUTHWEST),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "tp_southwest"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "tp_southwest",localize LSTRING(TP_SOUTHWEST),"default",{!(_this call FUNC(nearEnemys))},[getMarkerPos "tp_southwest"]] call FUNC(registerTeleportPosition);
+
+[getMarkerPos "tp_northwest",localize LSTRING(TP_NORTHWEST),["default","infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "tp_northwest"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "tp_northwest",localize LSTRING(TP_NORTHWEST),"default",{!(_this call FUNC(nearEnemys))},[getMarkerPos "tp_northwest"]] call FUNC(registerTeleportPosition);
+
+[getMarkerPos "tp_boat",localize LSTRING(TP_BOAT),["infanterie"],{!(_this call FUNC(nearEnemys))},[getMarkerPos "tp_boat"]] call FUNC(registerTeleportTarget);
+[getMarkerPos "tp_boat",localize LSTRING(TP_BOAT),"default",{!(_this call FUNC(nearEnemys))},[getMarkerPos "tp_boat"]] call FUNC(registerTeleportPosition);
 
 [
     localize LSTRING(TELEPORT),
